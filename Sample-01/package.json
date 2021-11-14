@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "npm-run-all --parallel spa api-server",
+    "prestart": "mkcert local.reopen",
+    "start": "HOST=local.reopen PORT=3000 HTTPS=true SSL_CRT_FILE=./local.reopen.pem SSL_KEY_FILE=./local.reopen-key.pem npm-run-all --parallel spa api-server",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
     "eject": "react-scripts eject",
@@ -20,6 +21,8 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.17",
     "@fortawesome/free-solid-svg-icons": "^5.8.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
+    "aws-amplify": "^4.3.4",
+    "aws-sdk": "^2.1016.0",
     "cors": "^2.8.5",
     "express": "^4.16.4",
     "express-jwt": "^6.0.0",

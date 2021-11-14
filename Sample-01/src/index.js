@@ -18,6 +18,7 @@ const onRedirectCallback = (appState) => {
 const config = getConfig();
 
 const providerConfig = {
+  scope: config.scope,
   domain: config.domain,
   clientId: config.clientId,
   ...(config.audience ? { audience: config.audience } : null),
